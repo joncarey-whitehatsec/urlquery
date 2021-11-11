@@ -233,7 +233,7 @@ func TestParser_Unmarshal_UnmatchedDataFormat(t *testing.T) {
 	if err == nil {
 		t.Error("error should not be ignored")
 	}
-	if _, ok := err.(ErrTranslated); !ok {
+	if _, ok := err.(ErrDecode); !ok {
 		t.Errorf("error type is unexpected. %v", err)
 	}
 }

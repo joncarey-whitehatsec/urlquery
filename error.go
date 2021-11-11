@@ -39,6 +39,15 @@ func (e ErrTranslated) Error() string {
 	return "failed to translate:" + e.err.Error()
 }
 
+type ErrDecode struct {
+	value      string
+	parentNode string
+}
+
+func (e ErrDecode) Error() string {
+	return "invalid value '" + e.value + "' for parameter '" + e.parentNode + "'"
+}
+
 // An ErrInvalidMapKeyType is a customized error
 type ErrInvalidMapKeyType struct {
 	typ reflect.Type

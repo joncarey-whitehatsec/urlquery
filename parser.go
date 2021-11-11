@@ -242,7 +242,7 @@ func (p *parser) parseValue(rv reflect.Value, parentNode string) {
 
 	v, err := p.decode(rv.Type(), value)
 	if err != nil {
-		p.err = err
+		p.err = ErrDecode{value: value, parentNode: parentNode}
 		return
 	}
 

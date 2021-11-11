@@ -21,6 +21,13 @@ func TestErrTranslated_Error(t *testing.T) {
 	}
 }
 
+func TestErrDecode_Error(t *testing.T) {
+	err := ErrDecode{value: "value", parentNode: "node"}
+	if err.Error() != "invalid value 'value' for parameter 'node'" {
+		t.Error(err.Error())
+	}
+}
+
 func TestErrUnsupportedBitSize_Error(t *testing.T) {
 	err := ErrUnsupportedBitSize{bitSize: 32}
 	if err.Error() != "failed to handle unsupported bitSize(32)" {
